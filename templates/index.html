@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Info</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Stock Information Finder</h1>
+    <form method="post">
+        <label for="symbol">Enter Stock Symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+        <input type="submit" value="Get Info">
+    </form>
+    {% if info %}
+        <div class="results">
+            <p><strong>Current Date and Time:</strong> {{ info.date }}</p>
+            <p><strong>Company:</strong> {{ info.company }}</p>
+            <p><strong>Stock Price:</strong> {{ info.price }}</p>
+            <p><strong>Value Changes:</strong> {{ info.change }}</p>
+            <p><strong>Percentage Changes:</strong> {{ info.percent_change }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
